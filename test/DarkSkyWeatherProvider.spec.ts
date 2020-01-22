@@ -1,6 +1,5 @@
 import Axios from 'axios'
 import DarknetWeatherProvider from '../src/input-interface/weather-providers/DarknetWeatherProvider'
-import Weather from "../src/models/Weather";
 import BaseWeatherProvider from "../src/input-interface/weather-providers/BaseWeatherProvider";
 import {Injector} from "../src/injection/Injector";
 
@@ -41,7 +40,7 @@ describe('Request', () => {
             const temp = 41;
             const jsonResponse = `{"latitude":3.3601,"longitude":3.0589,"timezone":"Etc/GMT","currently":{"temperature": 81.97}}`;
             const result = await prov.formatWeatherData(jsonResponse);
-            expect(result.celsius).toBe(temp)
+            expect(result.celsius).toBe(temp);
             expect(result.fahrenheit).toBe(105.8);
         })
     })

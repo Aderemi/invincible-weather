@@ -33,7 +33,7 @@ export default abstract class BaseWeatherProvider{
                 return weather;
             }
         }catch (error){
-            throw new APIErrorException(error, 500, url);
+            throw new APIErrorException(error, url);
         }
     }
 }

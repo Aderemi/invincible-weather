@@ -27,7 +27,7 @@ export default abstract class BaseController{
         }
         const locations: string[] = this.userInterface.getInput();
         for (const location of locations){
-            this.geoConverter.convert(location)
+            this.geoConverter.convertToLongAndLat(location)
                 .then(geo => {
                     const g: any = geo as any;
                     this.weatherProviderService.fetchWeather(g.longitude, g.latitude)
@@ -41,22 +41,9 @@ export default abstract class BaseController{
                             output.time = this.timeService.getTime(weather);
                             this.userInterface.render([output]);
                         })
-                        .catch(error => console.log(error));
+                        .catch(error => this.userInterface.showError(error.message));
                 })
-                .catch(error => console.log(error));
+                .catch(error => this.userInterface.showError(error.message));
         }
-        // const outputs: Output[] = locations.map(async location => {
-        //     return JSON.parse(await this.geoConverter.convert(location));
-        // }).map(async geo => {
-        //     const weather = await this.weatherProviderService.fetchWeather(geo.longitude, geo.latitude);
-        //     let output:Output= new Output();
-        //     output.forecast = weather.forecast;
-        //     output.temp_farenheint = weather.fahrenheit;
-        //     output.temp_celsius = weather.celsius;
-        //     output.city_name = weather.city_name;
-        //     output.time = this.timeService.getTime(weather);
-        //     return output;
-        // });
-        // this.userInterface.render(outputs);
     }
 }
