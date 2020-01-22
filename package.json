@@ -1,0 +1,85 @@
+{
+  "name": "invincible",
+  "version": "1.0.0",
+  "description": "Take home test for weather forecast",
+  "main": "main.ts",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aderemi/invincible.git"
+  },
+  "keywords": [
+    "None"
+  ],
+  "author": "Aderemi Dayo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aderemi/invincible/issues"
+  },
+  "homepage": "https://github.com/aderemi/invincible#readme",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 85,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.2",
+    "@types/node": "10.11.0",
+    "jest": "24.0.0",
+    "jest-config": "24.8.0",
+    "lint-staged": "8.0.0",
+    "lodash.camelcase": "4.3.0",
+    "prettier": "1.14.3",
+    "prompt": "1.0.0",
+    "replace-in-file": "3.4.2",
+    "rimraf": "2.6.2",
+    "ts-jest": "23.10.2",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "tslint-config-prettier": "1.15.0",
+    "tslint-config-standard": "8.0.1",
+    "typedoc": "0.14.2",
+    "typescript": "3.0.3"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.11",
+    "@types/node": "^8.0.14",
+    "@types/request-promise": "^4.1.43",
+    "@types/shelljs": "^0.8.6",
+    "axios": "^0.19.1",
+    "cheerio": "^1.0.0-rc.3",
+    "moment-timezone": "^0.5.27",
+    "reflect-metadata": "^0.1.13",
+    "request-promise": "4.2.4",
+    "shelljs": "^0.8.3",
+    "zipcodes": "^8.0.0"
+  }
+}
