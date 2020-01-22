@@ -2,6 +2,7 @@ import Weather from "../../models/Weather";
 import Axios from "axios";
 import {APIErrorException} from "../../exceptions/APIErrorException";
 import WeatherProviderInfo from "../../models/WeatherProviderInfo";
+import {NetworkNotAvailableException} from "../../exceptions/NetworkNotAvailableException";
 
 export default abstract class BaseWeatherProvider{
     abstract getInfo(): WeatherProviderInfo;
@@ -24,7 +25,7 @@ export default abstract class BaseWeatherProvider{
         let response;
         try{
             response = await Axios.get(url);
-            if(response.status == 200){
+            if(response && response.status == 200){
                 const responseObj = response.data;
                 const weather: Weather = this.formatWeatherData(responseObj);
                 weather.fahrenheit = BaseWeatherProvider.calculateFarenheit(weather.celsius);
@@ -33,6 +34,10 @@ export default abstract class BaseWeatherProvider{
                 return weather;
             }
         }catch (error){
+            if(!error.response) {
+                throw new NetworkNotAvailableException(error.message);
+                return;
+            }
             throw new APIErrorException(error, url);
         }
     }

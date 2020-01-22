@@ -4,7 +4,8 @@
   "description": "Take home test for weather forecast",
   "main": "main.ts",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "run": "ts-node src/main.ts"
   },
   "repository": {
     "type": "git",
