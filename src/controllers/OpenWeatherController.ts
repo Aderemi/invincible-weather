@@ -6,11 +6,11 @@ import Service from "../injection/ServiceDecorator";
 
 @Service()
 export default class OpenWebController extends BaseController{
-    constructor(
-        protected timeService: TimeService,
-        protected geoConverter: GeoLocationConverterService,
-        protected openWebService: OpenWeatherProvider
-    ){
-        super(timeService, geoConverter, openWebService);
-    }
+  constructor(
+    protected timeService: TimeService,
+    protected geoConverter: GeoLocationConverterService,
+    protected openWebService: OpenWeatherProvider
+  ){
+    super(timeService, geoConverter, openWebService);
+  }
 }
