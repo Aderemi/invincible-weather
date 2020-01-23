@@ -7,9 +7,9 @@ time and weather info from DarkSky and OpenWeather weather info providers, any p
 
 
 ## Execution instructions
-- `git clone https://github.com/aderemi/invincible.git`
-- `cd invincible`
+- `git clone https://github.com/aderemi/invincible-weather.git`
+- `cd invincible-weather`
 - `npm install`
-- `npm start -- lagos,10005`
+- `npm start -- lagos,10005,london,392023232442424`
 
 Command `npm test` can be used to run the tests
