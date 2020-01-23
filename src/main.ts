@@ -5,22 +5,26 @@ import DarkSkyNetController from "./controllers/DarkSkyNetController";
 import CommandlineInterface from "./input-interface/user-interface/CommandlineInterface";
 import {IUserInterface} from "./input-interface/user-interface/IUserInterface";
 
-// I implement two weather to show the level of flexibility in the class: design OpenWeather and DarkSky.
-// Both are injected through dependency injection, both will be queried for current weather. Any other
-// Weather provider can be implemented by simply extending input-interface/weather-providers/BaseWeatherProvider
-// create its controller by extending controllers/BaseController
+/*
+ I implement two weather to show the level of flexibility in the class: design OpenWeather and DarkSky.
+ Both are injected through dependency injection, both will be queried for current weather. Any other
+ Weather provider can be implemented by simply extending input-interface/weather-providers/BaseWeatherProvider
+ create its controller by extending controllers/BaseController
+*/
 const openWeather = Injector.resolve<BaseController>(OpenWebController);
-const darkSky = Injector.resolve<BaseController>(DarkSkyNetController);
 
-// I created frame work that allow implementation of different types of interface, be it restfulAPI, HTML or console
-// I implemented commandline interface
+/*
+ I created framework that allow implementation of different types of interface, be it restfulAPI, HTML or console
+ for this demo I implemented commandline interface
+*/
 const commandLineInterface = Injector.resolve<IUserInterface>(CommandlineInterface);
 
-// To use a controller just set user interface you intend to use and call your controller action
-// OpenWeather
+// To use a controller we just set user interface we intend to use and call our controller action
 openWeather.setUserInterface(commandLineInterface);
 openWeather.index();
 
+
 // DarkSky
-darkSky.setUserInterface(commandLineInterface);
-setTimeout(() => darkSky.index(), 1000);
+// const darkSky = Injector.resolve<BaseController>(DarkSkyNetController);
+// darkSky.setUserInterface(commandLineInterface);
+// darkSky.index();

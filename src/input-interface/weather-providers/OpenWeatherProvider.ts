@@ -25,7 +25,7 @@ export default class OpenWeatherProvider extends BaseWeatherProvider {
     formatWeatherData(data: string): Weather {
         const weather = new Weather();
         const model: any = data;
-        weather.celsius = parseInt(model.main.temp) - 273.15; // OpenWeather returns Kelvin by default
+        weather.celsius = model.main.temp - 273.15; // OpenWeather returns Kelvin by default
         weather.forecast = model.weather[0].main;
         return weather;
     }

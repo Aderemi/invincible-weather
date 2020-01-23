@@ -10,6 +10,6 @@ time and weather info from DarkSky and OpenWeather weather info providers, any p
 - `git clone https://github.com/aderemi/invincible.git`
 - `cd invincible`
 - `npm install`
-- `npm run`
+- `npm start -- lagos,10005`
 
 Command `npm test` can be used to run the tests

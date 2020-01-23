@@ -3,6 +3,7 @@ import DarknetWeatherProvider from '../src/input-interface/weather-providers/Dar
 import BaseWeatherProvider from "../src/input-interface/weather-providers/BaseWeatherProvider";
 import {Injector} from "../src/injection/Injector";
 import OpenWeatherProvider from "../src/input-interface/weather-providers/OpenWeatherProvider";
+import {openWeatherProviderMock} from "./MockJSON";
 
 describe('Request', () => {
     const prov = Injector.resolve<BaseWeatherProvider>(OpenWeatherProvider);
@@ -36,13 +37,13 @@ describe('Request', () => {
         })
     });
 
-    describe('returned json is correctly processed', () => {
-        it('returns temperature from scrapped page', async () => {
-            const temp = 41;
-            const jsonResponse = `{"name":"New York","latitude":3.3601,"longitude":3.0589,"timezone":"Etc/GMT","main":{"temp": 81.97}}`;
+    describe('returned json is correctly formatted', () => {
+        it('returns temperature from json processed', async () => {
+            const temp = 0;
+            const jsonResponse = JSON.parse(openWeatherProviderMock);
             const result = await prov.formatWeatherData(jsonResponse);
             expect(result.celsius).toBe(temp);
-            expect(result.fahrenheit).toBe(105.8);
+            expect(result.forecast).toBe("Raining");
         })
     })
 });

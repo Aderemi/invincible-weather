@@ -40,15 +40,14 @@ export default class CommandlineInterface implements IUserInterface {
     };
 
     render = (outputs: Output[]) => {
-        console.log(`Results: \n `);
+        console.log(`Result: `);
         outputs.forEach(output => {
-            console.log(`
-            City Name: ${output.city_name}
-            Current Time: ${output.time}
-            Current Temperature(Celsius): ${output.temp_celsius}
-            Current Temperature(Fahrenheit): ${output.temp_farenheint}
-            Forecast: ${output.forecast}
-            ...........................................`)
+            console.log(`City Name: ${output.city_name}
+Current Time: ${output.time}
+Current Temperature(Celsius): ${output.temp_celsius}
+Current Temperature(Fahrenheit): ${output.temp_farenheint}
+Forecast: ${output.forecast}
+..................................................................`)
         });
     }
 }
