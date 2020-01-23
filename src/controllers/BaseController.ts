@@ -13,7 +13,7 @@ export default abstract class BaseController{
         protected weatherProviderService: BaseWeatherProvider
     ){}
 
-    setInterface(uInterface: IUserInterface){
+    setUserInterface(uInterface: IUserInterface){
         this.userInterface = uInterface;
         this.userInterface.setProvider(this.weatherProviderService);
     }

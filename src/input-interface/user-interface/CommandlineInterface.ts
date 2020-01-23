@@ -8,6 +8,7 @@ export default class CommandlineInterface implements IUserInterface {
     private weatherProvider: BaseWeatherProvider;
 
     showIntro(){
+        console.log(`|****************************| ${this.weatherProvider.getInfo().name} |*****************************|`);
         console.log(`We will be using <${this.weatherProvider.getInfo().name}> for this weather forecast`);
         console.log(`Their general API documentation is at <${this.weatherProvider.getInfo().url}>`);
         console.log(`Their default temperature measurement unit is <${this.weatherProvider.getInfo().default_temp_unit}>`);
@@ -47,7 +48,7 @@ export default class CommandlineInterface implements IUserInterface {
             Current Temperature(Celsius): ${output.temp_celsius}
             Current Temperature(Fahrenheit): ${output.temp_farenheint}
             Forecast: ${output.forecast}
-            ..........................`)
+            ...........................................`)
         });
     }
 }

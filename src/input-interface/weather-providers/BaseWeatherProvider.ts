@@ -21,7 +21,6 @@ export default abstract class BaseWeatherProvider{
 
     async fetchWeather(longitude: number, latitude: number): Promise<Weather> {
         const url = this.getUrl(longitude, latitude);
-        console.log(url);
         let response;
         try{
             response = await Axios.get(url);

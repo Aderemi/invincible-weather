@@ -17,10 +17,10 @@ const darkSky = Injector.resolve<BaseController>(DarkSkyNetController);
 const commandLineInterface = Injector.resolve<IUserInterface>(CommandlineInterface);
 
 // To use a controller just set user interface you intend to use and call your controller action
-// DarkSky
-darkSky.setInterface(commandLineInterface);
-darkSky.index();
-
 // OpenWeather
-openWeather.setInterface(commandLineInterface);
+openWeather.setUserInterface(commandLineInterface);
 openWeather.index();
+
+// DarkSky
+darkSky.setUserInterface(commandLineInterface);
+setTimeout(() => darkSky.index(), 1000);
